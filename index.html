@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>E-Paper Display Based Shelf Updation System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --bg:#020617;
+  --panel:#0b1224;
+  --card:#0f172a;
+  --accent:#38bdf8;
+  --accent2:#22c55e;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --border:#1e293b;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+  background:
+    radial-gradient(circle at 15% 10%, #0ea5e920, transparent),
+    radial-gradient(circle at 85% 20%, #22c55e20, transparent),
+    var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+a{color:var(--accent);text-decoration:none}
+
+/* HERO */
+.hero{
+  padding:100px 20px 80px;
+  background:linear-gradient(180deg,#020617,#020617 70%,transparent);
+  border-bottom:1px solid var(--border);
+}
+
+.hero-inner{
+  max-width:1200px;
+  margin:auto;
+}
+
+.tag{
+  display:inline-block;
+  padding:6px 14px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:var(--panel);
+  color:var(--accent);
+  font-size:0.85rem;
+  margin-bottom:16px;
+}
+
+h1{
+  font-size:3.1rem;
+  margin:10px 0 16px;
+}
+
+.subtitle{
+  max-width:900px;
+  font-size:1.2rem;
+  color:var(--muted);
+}
+
+.hero-actions{
+  margin-top:32px;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 30px;
+  border-radius:12px;
+  font-weight:600;
+  margin-right:12px;
+}
+
+.primary{
+  background:var(--accent);
+  color:#020617;
+}
+
+.secondary{
+  border:1px solid var(--border);
+  color:var(--text);
+}
+
+/* SECTIONS */
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:90px 20px;
+}
+
+h2{
+  font-size:2.4rem;
+  margin-bottom:12px;
+}
+
+.section-desc{
+  max-width:900px;
+  color:var(--muted);
+  margin-bottom:40px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:28px;
+}
+
+/* CARDS */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:30px;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:.6s ease;
+}
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+.card h3{
+  margin-top:0;
+  color:var(--accent);
+}
+
+/* METRICS */
+.metrics{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:22px;
+  margin-top:40px;
+}
+
+.metric{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:26px;
+  text-align:center;
+}
+
+.metric h4{
+  margin:0;
+  font-size:1.8rem;
+  color:var(--accent2);
+}
+
+.metric p{
+  margin:6px 0 0;
+  color:var(--muted);
+}
+
+/* IMAGES */
+.image-card img{
+  width:100%;
+  margin-top:14px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  cursor:pointer;
+  transition:transform .25s ease;
+}
+.image-card img:hover{
+  transform:scale(1.02);
+}
+
+/* FULLSCREEN VIEWER */
+.viewer{
+  position:fixed;
+  inset:0;
+  background:rgba(2,6,23,.95);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+.viewer img{
+  max-width:96%;
+  max-height:96%;
+  border-radius:14px;
+  border:1px solid var(--border);
+}
+.viewer .close{
+  position:absolute;
+  top:24px;
+  right:32px;
+  font-size:2rem;
+  color:var(--muted);
+  cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+  padding:60px 20px;
+  text-align:center;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+}
+
+/* MOBILE */
+@media(max-width:700px){
+  h1{font-size:2.4rem}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="tag">ESP32 • BLE • E-Paper • IoT • Low Power</div>
+
+    <h1>E-Paper Display Based Shelf Updation System</h1>
+
+    <p class="subtitle">
+      A production-style Electronic Shelf Label (ESL) system using ESP32,
+      Bluetooth Low Energy and E-Paper display, designed for
+      ultra-low power retail automation with web and MQTT control.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn primary"
+         href="https://github.com/HarshitBhandari04/E-paper-Display-Based-Shelf-Updation-System"
+         target="_blank">
+        View Source Code
+      </a>
+      <a class="btn secondary" href="#gallery">
+        Project Images
+      </a>
+    </div>
+
+    <div class="metrics">
+      <div class="metric"><h4>BLE</h4><p>Wireless Updates</p></div>
+      <div class="metric"><h4>E-Paper</h4><p>Zero Power Idle</p></div>
+      <div class="metric"><h4>Deep Sleep</h4><p>Battery Friendly</p></div>
+      <div class="metric"><h4>MQTT</h4><p>Cloud Control</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<section>
+  <h2>📌 System Overview</h2>
+  <p class="section-desc">
+    This system replaces traditional paper shelf labels with
+    wireless, battery-powered e-paper displays.
+  </p>
+
+  <div class="grid">
+    <div class="card reveal"><h3>Ultra-Low Power Node</h3><p>Deep sleep driven ESP32 shelf device.</p></div>
+    <div class="card reveal"><h3>Gateway-Based Architecture</h3><p>Wi-Fi, MQTT and Web UI handled centrally.</p></div>
+    <div class="card reveal"><h3>Production-Ready Firmware</h3><p>OTA, logging and NVS storage.</p></div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section id="architecture">
+  <h2>🧠 Architecture & Design</h2>
+  <p class="section-desc">Click any diagram to view full screen.</p>
+
+  <div class="grid">
+    <div class="card image-card reveal"><h3>System Architecture</h3><img src="diagram/system.png"></div>
+    <div class="card image-card reveal"><h3>Gateway Controller</h3><img src="diagram/gateway.png"></div>
+    <div class="card image-card reveal"><h3>ESP32 Shelf Node</h3><img src="diagram/esp32.png"></div>
+    <div class="card image-card reveal"><h3>Cloud & MQTT</h3><img src="diagram/cloud.png"></div>
+    <div class="card image-card reveal"><h3>Update Sequence</h3><img src="diagram/update_seq.png"></div>
+    <div class="card image-card reveal"><h3>Alert Sequence</h3><img src="diagram/alert_seq.png"></div>
+    <div class="card image-card reveal"><h3>Shelf Deployment</h3><img src="diagram/Shelf.png"></div>
+  </div>
+</section>
+
+<!-- PROJECT IMAGES -->
+<section id="gallery">
+  <h2>📷 Project Images</h2>
+  <p class="section-desc">
+    Admin panel, sales dashboard, OTA workflow, and system logs
+    from the live E-Paper Display Based Shelf Updation System.
+  </p>
+
+  <div class="grid">
+    <div class="card image-card reveal">
+      <h3>Admin Panel</h3>
+      <img src="project_images/admin.png">
+    </div>
+
+    <div class="card image-card reveal">
+      <h3>Sales Dashboard (REST)</h3>
+      <img src="project_images/Sales_dashboard_REST.png">
+    </div>
+
+    <div class="card image-card reveal">
+      <h3>OTA Update System</h3>
+      <img src="project_images/System_OTA.png">
+    </div>
+
+    <div class="card image-card reveal">
+      <h3>System Logs</h3>
+      <img src="project_images/system_log.png">
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>E-Paper Display Based Shelf Updation System</p>
+  <p>Embedded Systems • ESP32 • BLE • IoT</p>
+</footer>
+
+<!-- FULLSCREEN VIEWER -->
+<div class="viewer" id="viewer">
+  <div class="close" onclick="closeViewer()">✕</div>
+  <img id="viewerImg">
+</div>
+
+<script>
+/* reveal animation */
+const observer=new IntersectionObserver(e=>{
+  e.forEach(i=>i.isIntersecting&&i.target.classList.add('show'))
+},{threshold:.2});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+/* fullscreen image viewer */
+const viewer=document.getElementById('viewer');
+const viewerImg=document.getElementById('viewerImg');
+
+document.querySelectorAll('.image-card img').forEach(img=>{
+  img.onclick=()=>{
+    viewer.style.display='flex';
+    viewerImg.src=img.src;
+  }
+});
+
+function closeViewer(){
+  viewer.style.display='none';
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') closeViewer();
+});
+
+viewer.addEventListener('click',e=>{
+  if(e.target===viewer) closeViewer();
+});
+</script>
+
+</body>
+</html>
